@@ -19,19 +19,8 @@ doc.list
 doc.list2<-xpathSApply(doc.html, id, xmlName)
 doc.list2
 
-# get the text lable for each link
-id_or_class_xp <- "//div[@class='types_inner_first']//ul//li//a"
-doc.text<-xpathApply(doc.html, id_or_class_xp, xmlValue)
-doc.text2 = gsub('\\n', '', doc.text)
-doc.text3 = gsub('\\t','',doc.text2)
-doc.text3
-
 # get the URLs associated with each link
-hrefs <- xpathSApply(doc.html, id_or_class_xp, xmlGetAttr, 'href')
-hrefs
-
 hrefs <- xpathSApply(doc.html, id, xmlGetAttr, 'href', NA)
-#hrefs <- Apply(hrefs, function(x) x[[1]])
 hrefs
 unlist(hrefs)
 
